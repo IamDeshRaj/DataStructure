@@ -10,7 +10,7 @@ public class LinkedList<E> implements List<E>{
 	int size = 0;
 	Node<E> first = null;
 	Node<E> last = null;
-	
+
 	public void addFirst(E element) {
 		Node<E> f = first;
 		Node<E> elementNode = new Node<E>(null, element, f);
@@ -28,7 +28,7 @@ public class LinkedList<E> implements List<E>{
 		addLast(element);
 		return true;
 	}
-	
+
 	public void addLast(E element) {
 		Node<E> l = last;
 		Node<E> elementNode = new Node<E>(l, element, null);
@@ -39,7 +39,7 @@ public class LinkedList<E> implements List<E>{
 			l.nxt = elementNode;
 		}
 	}
-	
+
 	public E getElementFromLast(int index) {
 		Node<E> main = this.first;
 		Node<E> reference = this.first;
@@ -60,7 +60,7 @@ public class LinkedList<E> implements List<E>{
 		}
 		return main.element;
 	}
-	
+
 	public void createCircleBwtween(int index) {
 		Node<E> main = this.first;
 		Node<E> reference = this.first;
@@ -81,6 +81,16 @@ public class LinkedList<E> implements List<E>{
 		}
 		reference.nxt = main;
 	}
+
+	public E getMiddleNode() {
+		Node<E> middle = this.first;
+		Node<E> last = this.first;
+		while(last != null) {
+			middle = middle.nxt;
+			last = last.nxt.nxt;
+		}
+		return middle.element;
+	}
 	
 	public boolean isCircular() {
 		Node<E> slow = this.first;
@@ -99,7 +109,7 @@ public class LinkedList<E> implements List<E>{
 		}
 		return false;
 	}
-	
+
 	public E getCircularNode() {
 		Node<E> slow = this.first;
 		Node<E> fast = this.first;
@@ -127,7 +137,7 @@ public class LinkedList<E> implements List<E>{
 		}
 		return slow.element;
 	}
-	
+
 	public void reverse() {
 		//Node<E> localLast = this.last;
 		Node<E> localFirst = this.first;
@@ -142,7 +152,7 @@ public class LinkedList<E> implements List<E>{
 			current.nxt = current.prv;
 			current.prv = tmp;
 		}while(nextNode.nxt != null);
-		
+
 		if(nextNode.nxt == null) {
 			nextNode.nxt = nextNode.prv;
 			nextNode.prv = null;
@@ -150,7 +160,38 @@ public class LinkedList<E> implements List<E>{
 		this.last = localFirst;
 		this.first = nextNode;
 	}
-	
+
+	public void seggregate() {
+		if(!(this.first.element instanceof Integer)) {
+			System.out.println("operation not supported");
+			return;
+		}
+		Node<E> nxt = this.first;
+		Node<E> evenHead = null;
+		Node<E> oddHead = null;
+		Node<E> evenTail = null;
+		Node<E> oddTail = null;
+		do {
+			if(((int)nxt.element)%2==0) {
+				if(evenHead == null) {
+					evenHead = nxt;
+				}else {
+					evenHead.nxt = nxt;
+					evenHead = evenHead.nxt;
+				}
+			}else {
+				if(oddHead == null) {
+					oddHead = nxt;
+				}else{
+					oddHead.nxt = nxt;
+					oddHead = oddHead.nxt;
+				}
+			}
+			nxt = nxt.nxt;
+		}while(nxt!=null);
+		System.out.println("here");
+	}
+
 	public void reverseRecursivily() {
 		Node<E> localFirst = this.first;
 		Node<E> localLast = this.last;
@@ -158,13 +199,13 @@ public class LinkedList<E> implements List<E>{
 		this.last = localFirst;
 		this.first = localLast;
 	}
-	
+
 	public void reverse(Node<E> nextNode) {
 		Node<E> tmp = null;
 		if(nextNode.nxt != null) {
 			reverse(nextNode.nxt);
 		}
-		
+
 		if(nextNode.nxt == null) {
 			nextNode.nxt = nextNode.prv;
 			nextNode.prv = null;
@@ -174,7 +215,7 @@ public class LinkedList<E> implements List<E>{
 			nextNode.prv = tmp;
 		}
 	}
-	
+
 	public E get(int index) {
 		E element = null;
 		if(index+1 > size) {
@@ -193,7 +234,7 @@ public class LinkedList<E> implements List<E>{
 		}
 		return element;
 	}
-	
+
 	public E remove(int index) {
 		Node<E> node = null;
 		if(index > size) {
@@ -214,7 +255,7 @@ public class LinkedList<E> implements List<E>{
 		}
 		return node.element;
 	}
-	
+
 	public boolean remove(Object o) {
 		Node<E> node = null;
 		for (Node<E> i = last; i.prv != null; i = i.prv) {
@@ -227,7 +268,7 @@ public class LinkedList<E> implements List<E>{
 		}
 		return true;
 	}
-	
+
 	public static class Node<E>{
 		E element = null;
 		Node<E> nxt = null;
@@ -319,7 +360,7 @@ public class LinkedList<E> implements List<E>{
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -331,7 +372,7 @@ public class LinkedList<E> implements List<E>{
 	@Override
 	public void add(int index, E element) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

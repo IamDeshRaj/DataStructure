@@ -14,6 +14,8 @@ public class ListExpriment {
 		lst.add(16);
 		lst.add(17);
 		lst.add(18);
+		System.out.println(lst.getMiddleNode());
+		//lst.seggregate(); need to implement, output should be 11, 13, 15, 17, 12, 14, 16, 18
 		//System.out.println(lst.getElementFromLast(3));
 		//lst.createCircleBwtween(3);
 		if(lst.isCircular()) {
@@ -27,7 +29,7 @@ public class ListExpriment {
 				System.out.print(curr.element+", ");
 				curr = curr.nxt;
 			}while(curr!=null);
-			//lst.swapNodes(); @TODO
+			//lst.swapNodes(); @TODO 
 		}
 	}
 }
