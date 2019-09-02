@@ -1,13 +1,14 @@
 package com.data.structure.collection.tree;
 
-public class Node<E>{
+public class Node{
 
-	E element;
-	Node<E> left;
-	Node<E> right;
+	int element, height; 
+	Node left;
+	Node right;
 	
-	public Node(E element) {
+	public Node(int element) {
 		this.element = element;
+		height = 1;
 	}
 
 	@Override
