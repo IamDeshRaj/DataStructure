@@ -172,7 +172,7 @@ public class LinkedList<E> implements List<E>{
 		Node<E> evenTail = null;
 		Node<E> oddTail = null;
 		do {
-			if(((int)nxt.element)%2==0) {
+			if(((Integer)nxt.element)%2==0) {
 				if(evenHead == null) {
 					evenHead = nxt;
 				}else {

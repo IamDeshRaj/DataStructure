@@ -10,7 +10,7 @@ public class Practice {
 	}*/
 
 	public static void main(String[] args) {
-		int arr[] = {3, 1, 4, 2};
+		int arr[] = {4, 1, 3, 2};
 		System.out.print("{");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i]);
@@ -20,7 +20,8 @@ public class Practice {
 				System.out.println("}");
 			}
 		}
-		quickSort(arr, 0, arr.length-1);
+		//quickSort(arr, 0, arr.length-1);
+		bubbleSort(arr);
 		System.out.print("{");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i]);
@@ -31,6 +32,20 @@ public class Practice {
 			}
 		}
 	}
+
+	private static void bubbleSort(int[] arr) {
+		int tmp = 0;
+		for (int i = arr.length-1; i > 1; i--) {
+			for (int j = 0; j < i; j++) {
+				if(arr[j]>arr[j+1]) {
+					tmp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = tmp;
+				}
+			}
+		}
+	}
+
 	private static void quickSort(int[] arr, int l, int h) {
 		if(l<h) {
 			int p = partition(arr, l, h);
