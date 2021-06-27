@@ -1,4 +1,4 @@
-package com.data.structure.array;
+package com.data.structure.array.v1;
 
 public class EquilibirumPoint {
 
