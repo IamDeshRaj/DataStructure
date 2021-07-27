@@ -1,4 +1,4 @@
-package com.data.structure.recursion;
+package com.data.structure.recursion.v1;
 
 public class MaxCut {
 
