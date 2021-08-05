@@ -1,4 +1,4 @@
-package com.data.structure.collection.graph;
+package com.data.structure.collection.graph.v1;
 
 public class GraphTest {
 
